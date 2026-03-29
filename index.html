@@ -530,7 +530,7 @@
 
         .currently-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
         }
 
@@ -1008,6 +1008,106 @@
         .animate-in {
             animation: fadeInUp 0.8s ease;
         }
+
+        /* Hero Stats */
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.8s backwards;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.25rem;
+        }
+
+        /* Featured project card */
+        .featured-card {
+            border-color: var(--accent) !important;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.1);
+            position: relative;
+        }
+
+        [data-theme="light"] .featured-card {
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.15);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -13px;
+            right: 1.5rem;
+            background: var(--accent);
+            color: #000;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Building / In-Progress project card */
+        .building-card {
+            border-color: #f59e0b !important;
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.1);
+            position: relative;
+        }
+
+        .building-badge {
+            position: absolute;
+            top: -13px;
+            right: 1.5rem;
+            background: #f59e0b;
+            color: #000;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* View all repos link */
+        .view-all-repos {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .view-all-repos a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 2px solid var(--accent);
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .view-all-repos a:hover {
+            background: var(--accent);
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -1050,11 +1150,29 @@
         <div class="hero-content animate-in">
             <div class="hero-text">
                 <h1>Ismail Sadykov</h1>
-                <div class="role">Software Engineer</div>
-                <p>Computer Science student specializing in full-stack development. Building scalable web applications with modern technologies and clean architecture.</p>
+                <div class="role">Backend-Focused Full-Stack Engineer</div>
+                <p>Computer Science student building production-grade REST APIs and full-stack applications with Python, Django, Node.js, and React. Focused on clean architecture, Docker, and systems that scale.</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">24+</span>
+                        <span class="hero-stat-label">GitHub Repos</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">100+</span>
+                        <span class="hero-stat-label">LeetCode Solved</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">5+</span>
+                        <span class="hero-stat-label">APIs Built</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">2026</span>
+                        <span class="hero-stat-label">Honor Roll</span>
+                    </div>
                 </div>
             </div>
             <div class="hero-image">
@@ -1080,6 +1198,10 @@
                 <div class="currently-card">
                     <h3>💼 Interning</h3>
                     <p>Backend Developer Intern (Project-Based) at Syntecxhub — building RESTful APIs with Python, Django, and PostgreSQL.</p>
+                </div>
+                <div class="currently-card">
+                    <h3>🔨 Building</h3>
+                    <p>Actively developing <strong style="color: var(--accent);">CourseBuddy</strong> — a full-stack academic course management platform with Django REST Framework, JWT auth, and PostgreSQL.</p>
                 </div>
                 <div class="currently-card">
                     <h3>🤝 Mentoring</h3>
@@ -1186,8 +1308,10 @@
                         <span class="skill-tag">Django</span>
                         <span class="skill-tag">Django REST Framework</span>
                         <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Prisma ORM</span>
                         <span class="skill-tag">REST APIs</span>
                         <span class="skill-tag">Authentication</span>
+                        <span class="skill-tag">JWT / Token Auth</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -1205,8 +1329,11 @@
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">GitHub</span>
                         <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Docker Compose</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">AWS</span>
                         <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">Debugging</span>
+                        <span class="skill-tag">CI/CD</span>
                     </div>
                 </div>
                 <div class="skill-category">
@@ -1214,10 +1341,12 @@
                     <div class="skill-tags">
                         <span class="skill-tag">OOP</span>
                         <span class="skill-tag">MVC Pattern</span>
+                        <span class="skill-tag">REST API Design</span>
                         <span class="skill-tag">Unit Testing</span>
                         <span class="skill-tag">Agile Development</span>
                         <span class="skill-tag">Data Structures</span>
                         <span class="skill-tag">Algorithms</span>
+                        <span class="skill-tag">Clean Architecture</span>
                     </div>
                 </div>
             </div>
@@ -1282,73 +1411,38 @@
                 <p class="section-description">A collection of projects showcasing my expertise in full-stack development, security, and scalable architecture.</p>
             </div>
             <div class="projects-grid" id="projectsGrid">
-                <div class="project-card">
+
+                <!-- Recipe App API - Featured -->
+                <div class="project-card featured-card">
+                    <div class="featured-badge">⭐ Featured</div>
                     <div class="project-header">
-                        <h3>Members Only App</h3>
-                        <p>Secure web application for members-only content with authentication</p>
+                        <h3>Recipe App API</h3>
+                        <p>Fully containerized production-grade REST API with CI/CD pipeline</p>
                         <div class="project-tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Express</span>
-                            <span class="tag">MongoDB</span>
-                            <span class="tag">Passport.js</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">DRF</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">GitHub Actions</span>
                         </div>
                     </div>
                     <div class="project-body">
                         <ul>
-                            <li>Implemented user authentication and role-based authorization</li>
-                            <li>Built dynamic EJS templates for improved UI responsiveness</li>
-                            <li>Enhanced scalability through code refactoring</li>
+                            <li>Production-ready API with Docker Compose, PostgreSQL, and automated CI via GitHub Actions on every push</li>
+                            <li>Custom email-based authentication, token auth, and auto-generated OpenAPI/Swagger documentation</li>
+                            <li>Full CRUD for recipes, tags, and ingredients — with image upload support via Pillow</li>
                         </ul>
-                        <a href="https://github.com/sadykovIsmail/node.js/tree/main/10-members-only" class="project-link" target="_blank">View Source Code →</a>
+                        <a href="https://github.com/sadykovIsmail/recipe_app_api" class="project-link" target="_blank">View Source Code →</a>
                     </div>
                 </div>
 
-                <div class="project-card">
+                <!-- CourseBuddy - Currently Building -->
+                <div class="project-card building-card">
+                    <div class="building-badge">🔨 Building Now</div>
                     <div class="project-header">
-                        <h3>Inventory Management App</h3>
-                        <p>Real-time inventory tracking with REST API support</p>
-                        <div class="project-tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Express</span>
-                            <span class="tag">MongoDB</span>
-                            <span class="tag">Mongoose</span>
-                        </div>
-                    </div>
-                    <div class="project-body">
-                        <ul>
-                            <li>Developed CRUD operations with input validation</li>
-                            <li>Created modular REST APIs using MVC design patterns</li>
-                            <li>Enhanced responsiveness for multiple concurrent users</li>
-                        </ul>
-                        <a href="https://github.com/sadykovIsmail/node.js/tree/main/08-inventory-app" class="project-link" target="_blank">View Source Code →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Message Board App</h3>
-                        <p>Interactive messaging platform with modular design</p>
-                        <div class="project-tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Express</span>
-                            <span class="tag">EJS</span>
-                            <span class="tag">MongoDB</span>
-                        </div>
-                    </div>
-                    <div class="project-body">
-                        <ul>
-                            <li>Built post management with persistent MongoDB storage</li>
-                            <li>Applied MVC architecture and OOP principles</li>
-                            <li>Implemented pagination and sorting for optimal performance</li>
-                        </ul>
-                        <a href="https://github.com/sadykovIsmail/node.js/tree/main/05-message-board" class="project-link" target="_blank">View Source Code →</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Syntecxhub User CRUD API</h3>
-                        <p>Production-grade REST API with full user management</p>
+                        <h3>CourseBuddy</h3>
+                        <p>Academic course management and planning platform</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
                             <span class="tag">Django</span>
@@ -1358,16 +1452,109 @@
                     </div>
                     <div class="project-body">
                         <ul>
-                            <li>Built a RESTful User CRUD API using Django REST Framework and PostgreSQL</li>
-                            <li>Implemented API authentication with token-based auth and secure endpoints</li>
-                            <li>Applied clean backend architecture and data modeling best practices</li>
+                            <li>Full-stack academic platform helping students manage courses, schedules, and study plans</li>
+                            <li>REST API backend with Django REST Framework, JWT authentication, and PostgreSQL</li>
+                            <li>Actively in development — new features shipping continuously</li>
                         </ul>
+                        <a href="https://github.com/sadykovIsmail/coursebuddy" class="project-link" target="_blank">View Source Code →</a>
                     </div>
                 </div>
+
+                <!-- Social Media App Backend -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Social Media Backend API</h3>
+                        <p>Full-featured social platform backend with auth and file uploads</p>
+                        <div class="project-tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">Prisma ORM</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Multer</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <ul>
+                            <li>Full social backend: user auth, post creation, follow system, and image uploads</li>
+                            <li>Prisma ORM for type-safe database queries with PostgreSQL</li>
+                            <li>RESTful API design with session-based auth and Multer for file handling</li>
+                        </ul>
+                        <a href="https://github.com/sadykovIsmail/nodejs-services/tree/main/13-social-media-app" class="project-link" target="_blank">View Source Code →</a>
+                    </div>
+                </div>
+
+                <!-- Blog App API -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Blog App API</h3>
+                        <p>RESTful blog management API with full authentication flow</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Django REST Framework</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <ul>
+                            <li>REST API for blog content with full CRUD for posts, comments, and categories</li>
+                            <li>Token-based authentication with permission-controlled endpoints</li>
+                            <li>Clean DRF architecture with serializers, viewsets, and model validation</li>
+                        </ul>
+                        <a href="https://github.com/sadykovIsmail/blog-app-api" class="project-link" target="_blank">View Source Code →</a>
+                    </div>
+                </div>
+
+                <!-- Syntecxhub User CRUD API -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Syntecxhub User CRUD API</h3>
+                        <p>Production-grade REST API built during backend internship</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Django REST Framework</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <ul>
+                            <li>Built and maintained a RESTful User CRUD API using Django REST Framework and PostgreSQL</li>
+                            <li>Implemented token-based authentication with secure, permission-controlled endpoints</li>
+                            <li>Applied clean backend architecture with proper data modeling and API design</li>
+                        </ul>
+                        <span style="color: var(--text-secondary); font-size: 0.88rem; display: inline-block; margin-top: 1rem;">🔒 Internship Project — Private Repository</span>
+                    </div>
+                </div>
+
+                <!-- Members Only App -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Members Only App</h3>
+                        <p>Secure web app with tiered role-based authentication</p>
+                        <div class="project-tags">
+                            <span class="tag">Node.js</span>
+                            <span class="tag">Express</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">Passport.js</span>
+                            <span class="tag">bcrypt</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <ul>
+                            <li>Role-based auth with Passport.js local strategy and bcrypt password hashing</li>
+                            <li>Protected routes with guest / member / admin access tiers and session management</li>
+                            <li>PostgreSQL-backed persistent storage with server-side EJS rendering</li>
+                        </ul>
+                        <a href="https://github.com/sadykovIsmail/nodejs-services/tree/main/10-members-only" class="project-link" target="_blank">View Source Code →</a>
+                    </div>
+                </div>
+
+                <!-- Movie Explorer App -->
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Movie Explorer App</h3>
-                        <p>Responsive movie search interface consuming REST APIs</p>
+                        <p>Responsive movie search interface consuming a live REST API</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
                             <span class="tag">JavaScript</span>
@@ -1377,13 +1564,16 @@
                     </div>
                     <div class="project-body">
                         <ul>
-                            <li>Designed responsive React UI with hooks and state management</li>
-                            <li>Integrated TMDB REST API for live data rendering</li>
-                            <li>Enhanced UX through efficient data rendering</li>
+                            <li>Responsive React UI using hooks and state management for real-time search</li>
+                            <li>TMDB REST API integration for live movie data, ratings, and trailers</li>
+                            <li>Clean component-based architecture with efficient conditional rendering</li>
                         </ul>
-                        <a href="https://github.com/sadykovIsmail/frontend-projects-collection/tree/main/34-movie-explorer-app" class="project-link" target="_blank">View Source Code →</a>
+                        <a href="https://github.com/sadykovIsmail/frontend-projects/tree/main/34-movie-explorer-app" class="project-link" target="_blank">View Source Code →</a>
                     </div>
                 </div>
+            </div>
+            <div class="view-all-repos">
+                <a href="https://github.com/sadykovIsmail" target="_blank">View All 24+ Repositories on GitHub →</a>
             </div>
         </div>
     </section>
