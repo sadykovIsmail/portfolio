@@ -530,7 +530,7 @@
 
         .currently-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
         }
 
@@ -1062,6 +1062,26 @@
             letter-spacing: 0.5px;
         }
 
+        /* Building / In-Progress project card */
+        .building-card {
+            border-color: #f59e0b !important;
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.1);
+            position: relative;
+        }
+
+        .building-badge {
+            position: absolute;
+            top: -13px;
+            right: 1.5rem;
+            background: #f59e0b;
+            color: #000;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
         /* View all repos link */
         .view-all-repos {
             text-align: center;
@@ -1178,6 +1198,10 @@
                 <div class="currently-card">
                     <h3>💼 Interning</h3>
                     <p>Backend Developer Intern (Project-Based) at Syntecxhub — building RESTful APIs with Python, Django, and PostgreSQL.</p>
+                </div>
+                <div class="currently-card">
+                    <h3>🔨 Building</h3>
+                    <p>Actively developing <strong style="color: var(--accent);">CourseBuddy</strong> — a full-stack academic course management platform with Django REST Framework, JWT auth, and PostgreSQL.</p>
                 </div>
                 <div class="currently-card">
                     <h3>🤝 Mentoring</h3>
@@ -1410,6 +1434,29 @@
                             <li>Full CRUD for recipes, tags, and ingredients — with image upload support via Pillow</li>
                         </ul>
                         <a href="https://github.com/sadykovIsmail/recipe_app_api" class="project-link" target="_blank">View Source Code →</a>
+                    </div>
+                </div>
+
+                <!-- CourseBuddy - Currently Building -->
+                <div class="project-card building-card">
+                    <div class="building-badge">🔨 Building Now</div>
+                    <div class="project-header">
+                        <h3>CourseBuddy</h3>
+                        <p>Academic course management and planning platform</p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Django REST Framework</span>
+                            <span class="tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <ul>
+                            <li>Full-stack academic platform helping students manage courses, schedules, and study plans</li>
+                            <li>REST API backend with Django REST Framework, JWT authentication, and PostgreSQL</li>
+                            <li>Actively in development — new features shipping continuously</li>
+                        </ul>
+                        <a href="https://github.com/sadykovIsmail/coursebuddy" class="project-link" target="_blank">View Source Code →</a>
                     </div>
                 </div>
 
